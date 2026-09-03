@@ -35,9 +35,9 @@ public class GroupF_BusinessSimulator {
      * Prints the formatted price list for the boutique using a loop.
      */
     public static void printPriceList(String[] names, double[] prices) {
-        System.out.println("==== CHIC BOUTIQUE ====");
+        System.out.println("==== CHIC BOUTIQUE ====");// header 
         for (int i = 0; i < names.length; i++) {
-            System.out.printf(Locale.US, "%d. %-14sUGX %,.2f%n",
+            System.out.printf(Locale.US, "%d. %-14sUGX %,.2f%n",// ensures to format the decmal with dots %-14s is for left alingment 
                     (i + 1), names[i], prices[i]);
         }
         System.out.println();
@@ -55,17 +55,17 @@ public class GroupF_BusinessSimulator {
     public static double calculateDiscountedSubtotal(String itemName, double price, int qty) {
         double subtotal = price * qty;
 
-        if (itemName.equals("Shirt")) {
+        if (itemName.equalsIgnoreCase("Shirt")) {
             if (qty >= 4) {
-                subtotal = subtotal - (subtotal * 0.05); // 5% off
+                subtotal = subtotal - (subtotal * 0.05); // if a customer buys 4 or more items they get a 5% off
             }
-        } else if (itemName.equals("Trousers")) {
+        } else if (itemName.equalsIgnoreCase("Trousers")) {
             // No deal, ever - subtotal stays as price * qty
-        } else if (itemName.equals("Shoes (pair)")) {
+        } else if (itemName.equalsIgnoreCase("Shoes (pair)")) {
             if (qty >= 2) {
                 subtotal = subtotal - 10000.00; // flat UGX 10,000 off
             }
-        } else if (itemName.equals("Dress")) {
+        } else if (itemName.equalsIgnoreCase("Dress")) {
             if (qty >= 3) {
                 subtotal = subtotal - (subtotal * 0.10); // 10% off
             }
@@ -79,8 +79,8 @@ public class GroupF_BusinessSimulator {
      * a discount applied to this line, without repeating the discount
      * maths itself.
      */
-    public static boolean discountApplies(String itemName, int qty) {
-        if (itemName.equals("Shirt")) {
+    public static boolean discountApplies(String itemName, int qty) {// the boolean  returns true or false whether the discount applies or not and the receipt will have discount applied or discount not applied 
+        if (itemName.equalsIgnoreCase("Shirt")) {
             return qty >= 4;
         } else if (itemName.equals("Trousers")) {
             return false;
