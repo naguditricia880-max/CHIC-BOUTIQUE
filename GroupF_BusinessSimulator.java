@@ -40,7 +40,7 @@ public class GroupF_BusinessSimulator {
             System.out.printf(Locale.US, "%d. %-14sUGX %,.2f%n",
                     (i + 1), names[i], prices[i]);
         }
-        System.out.println();
+        System.out.println();//Prints output
     }
 
     /**
