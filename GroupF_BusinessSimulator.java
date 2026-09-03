@@ -40,7 +40,7 @@ public class GroupF_BusinessSimulator {
             System.out.printf(Locale.US, "%d. %-14sUGX %,.2f%n",// ensures to format the decmal with dots %-14s is for left alingment 
                     (i + 1), names[i], prices[i]);
         }
-        System.out.println();
+        System.out.println();//Prints output
     }
 
     /**
